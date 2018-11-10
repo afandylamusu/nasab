@@ -1,14 +1,19 @@
 package main
 
 import (
+	"encoding/json"
+	"net/http"
+
 	"github.com/afandylamusu/nasab/src/Nasab.WebApi/app/db"
+	"github.com/afandylamusu/nasab/src/Nasab.WebApi/app/types"
+
 	"github.com/graphql-go/graphql"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/context"
 	"github.com/kataras/iris/middleware/logger"
 	"github.com/kataras/iris/middleware/recover"
 
-	"github.com/mnmtanish/go-graphiql"
+	"github.com/afandylamusu/go-graphiql"
 )
 
 // NewUser will call insert User into table
@@ -19,57 +24,28 @@ func NewUser(people *db.People) {
 	connection.Create(people)
 }
 
-var peoples []db.People
+func serveGraphQL(s graphql.Schema, w http.ResponseWriter, r *http.Request) {
 
-var peopleType = graphql.NewObject(
-	graphql.ObjectConfig{
-		Name: "People",
-		Fields: graphql.Fields{
-			"id": &graphql.Field{
-				Type: graphql.Int,
-			},
-		},
-	},
-)
+	sendError := func(err error) {
+		w.WriteHeader(500)
+		w.Write([]byte(err.Error()))
+	}
 
-var queryType = graphql.NewObject(
-	graphql.ObjectConfig{
-		Name: "Query",
-		Fields: graphql.Fields{
-			/* POST (read) peopeles by paging
-			   query body:
+	req := &graphiql.Request{}
+	if err := json.NewDecoder(r.Body).Decode(req); err != nil {
+		sendError(err)
+		return
+	}
 
-			   {
-				   peoples(page:0, page_size:25)
-				   	{
-						names,
-						birthOfDate,
-						birthOfPlace
-					}
-				}
+	res := graphql.Do(graphql.Params{
+		Schema:        s,
+		RequestString: req.Query,
+	})
 
-			*/
-			"peoples": &graphql.Field{
-				Type:        graphql.NewList(peopleType),
-				Description: "Get People list",
-				Args: graphql.FieldConfigArgument{
-					"page": &graphql.ArgumentConfig{
-						Type: graphql.Int,
-					},
-					"page_size": &graphql.ArgumentConfig{
-						Type: graphql.Int,
-					},
-				},
-				Resolve: func(p graphql.ResolveParams) (interface{}, error) {
-					// page, ok := p.Args["page"].(int)
-					// pageSize, ok := p.Args["page_size"].(int)
-
-					return peoples, nil
-				},
-			},
-		},
-	},
-)
+	if err := json.NewEncoder(w).Encode(res); err != nil {
+		sendError(err)
+	}
+}
 
 /**
  * sfsdfds
@@ -77,7 +53,7 @@ var queryType = graphql.NewObject(
  * sdfds
  */
 func main() {
-	app := iris.Default()
+	app := iris.New()
 	app.Logger().SetLevel("debug")
 	// Optionally, add two built'n handlers
 	// that can recover from any http-relative panics
@@ -107,6 +83,16 @@ func main() {
 	// Method:   POST
 	// Resource: /api/graphql This is to handle graphql query and mutations
 	app.Handle("POST", "/graphql", func(ctx context.Context) {
+		schema, err := graphql.NewSchema(graphql.SchemaConfig{
+			Query: types.RootQuery,
+			// Mutation: types.RootMutation,
+		})
+
+		if err != nil {
+			panic(err)
+		}
+
+		serveGraphQL(schema, ctx.ResponseWriter(), ctx.Request())
 
 		// params := &User{}
 		// err := ctx.ReadJSON(params)
