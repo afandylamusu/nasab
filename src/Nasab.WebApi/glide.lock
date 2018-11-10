@@ -1,0 +1,95 @@
+hash: f6183387eb3838e8be7d06465c674150b52100c4b02db6bcd773dffa4365d37a
+updated: 2018-11-10T20:39:14.8156543+07:00
+imports:
+- name: github.com/aymerick/raymond
+  version: b565731e1464263de0bda75f2e45d97b54b60110
+  subpackages:
+  - ast
+  - lexer
+  - parser
+- name: github.com/BurntSushi/toml
+  version: 3012a1dbe2e4bd1391d42b32f0577cb7bbc7f005
+- name: github.com/eknkc/amber
+  version: cdade1c073850f4ffc70a829e31235ea6892853b
+  subpackages:
+  - parser
+- name: github.com/fatih/structs
+  version: 878a968ab22548362a09bdb3322f98b00f470d46
+- name: github.com/flosch/pongo2
+  version: 24195e6d38b06020d7a92c7b11960cf2e7cad2f2
+- name: github.com/iris-contrib/formBinder
+  version: ad9fb86c356f971f30319c40ddbdcf72129a2791
+- name: github.com/iris-contrib/go.uuid
+  version: 36e9d2ebbde5e3f13ab2e25625fd453271d6522e
+- name: github.com/jinzhu/gorm
+  version: 6ed508ec6a4ecb3531899a69cbc746ccf65a4166
+- name: github.com/Joker/jade
+  version: 4710ad025334997818170b241797d42a707e912b
+- name: github.com/json-iterator/go
+  version: 05d041de1043ba04b678fb046bd35455a9b1b33b
+- name: github.com/juju/errors
+  version: a4583d0a56eac4bdd939e38050d0c69abe0a9b41
+- name: github.com/kataras/golog
+  version: 03be101463868edc5a81f094fc68a5f6c1b5503a
+- name: github.com/kataras/iris
+  version: ba71bda0a36afc574444bdb269a52649d1505953
+  subpackages:
+  - context
+  - core/errors
+  - core/handlerconv
+  - core/host
+  - core/memstore
+  - core/netutil
+  - core/router
+  - macro
+  - macro/handler
+  - macro/interpreter/ast
+  - macro/interpreter/lexer
+  - macro/interpreter/parser
+  - macro/interpreter/token
+  - middleware/logger
+  - middleware/recover
+  - view
+- name: github.com/kataras/pio
+  version: a9733b5b6b83d32b479aacd51d26ef6018261963
+  subpackages:
+  - terminal
+- name: github.com/klauspost/compress
+  version: 30be6041bed523c18e269a700ebd9c2ea9328574
+  subpackages:
+  - flate
+  - gzip
+- name: github.com/klauspost/cpuid
+  version: e7e905edc00ea8827e58662220139109efea09db
+- name: github.com/microcosm-cc/bluemonday
+  version: 82c7118e8ccf7403d4860175d97bb635e8e28239
+- name: github.com/modern-go/concurrent
+  version: bacd9c7ef1dd9b15be4a9909b8ac7a4e313eec94
+- name: github.com/modern-go/reflect2
+  version: 94122c33edd36123c84d5368cfb2b69df93a0ec8
+- name: github.com/ryanuber/columnize
+  version: abc90934186a77966e2beeac62ed966aac0561d5
+- name: github.com/Shopify/goreferrer
+  version: ec9c9a553398739f0dcf817e0ad5e01c4e7dcd08
+- name: github.com/shurcooL/sanitized_anchor_name
+  version: 86672fcb3f950f35f2e675df2240550f2a50762f
+- name: golang.org/x/crypto
+  version: e4dc69e5b2fd71dcaf8bd5d054eb936deb78d1fa
+  subpackages:
+  - acme
+  - acme/autocert
+- name: golang.org/x/net
+  version: 03003ca0c849e57b6ea29a4bab8d3cb6e4d568fe
+  subpackages:
+  - html
+  - html/atom
+  - publicsuffix
+- name: golang.org/x/sys
+  version: 66b7b1311ac80bbafcd2daeef9a5e6e2cd1e2399
+  subpackages:
+  - unix
+- name: gopkg.in/russross/blackfriday.v2
+  version: d3b5b032dc8e8927d31a5071b56e14c89f045135
+- name: gopkg.in/yaml.v2
+  version: 5420a8b6744d3b0345ab293f6fcba19c978f1183
+testImports: []

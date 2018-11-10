@@ -1,0 +1,4 @@
+package: github.com/afandylamusu/nasab/src/Nasab.WebApi
+import:
+- package: github.com/jinzhu/gorm
+  version: ^1.9.1
