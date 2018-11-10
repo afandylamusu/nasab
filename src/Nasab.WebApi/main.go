@@ -94,26 +94,6 @@ func main() {
 
 		serveGraphQL(schema, ctx.ResponseWriter(), ctx.Request())
 
-		// params := &User{}
-		// err := ctx.ReadJSON(params)
-		// if err != nil {
-		// 	ctx.JSON(context.Map{"response": err.Error()})
-		// } else {
-		// 	params.LastUpdate = time.Now()
-		// 	err := c.Insert(params)
-		// 	if err != nil {
-		// 		ctx.JSON(context.Map{"response": err.Error()})
-		// 	} else {
-		// 		fmt.Println("Successfully inserted into database")
-		// 		result := User{}
-		// 		err = c.Find(bson.M{"msisdn": params.Msisdn}).One(&result)
-		// 		if err != nil {
-		// 			ctx.JSON(context.Map{"response": err.Error()})
-		// 		}
-		// 		ctx.JSON(context.Map{"response": "User succesfully created", "message": result})
-		// 	}
-		// }
-
 	})
 
 	// http://localhost:8080

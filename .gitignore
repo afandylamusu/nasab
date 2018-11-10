@@ -15,5 +15,7 @@ dist/
 
 .idea
 
+debug
+
 #glide vendor
 */**/vendor
