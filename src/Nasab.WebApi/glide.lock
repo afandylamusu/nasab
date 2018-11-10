@@ -1,5 +1,5 @@
-hash: f6183387eb3838e8be7d06465c674150b52100c4b02db6bcd773dffa4365d37a
-updated: 2018-11-10T20:39:14.8156543+07:00
+hash: bbd673083b7182cfcfacfbb3344e99d1879f9fe1d659be16210ba80e7a94f2f0
+updated: 2018-11-10T21:43:41.9853594+07:00
 imports:
 - name: github.com/aymerick/raymond
   version: b565731e1464263de0bda75f2e45d97b54b60110
@@ -17,12 +17,20 @@ imports:
   version: 878a968ab22548362a09bdb3322f98b00f470d46
 - name: github.com/flosch/pongo2
   version: 24195e6d38b06020d7a92c7b11960cf2e7cad2f2
+- name: github.com/go-sql-driver/mysql
+  version: d523deb1b23d913de5bdada721a6071e71283618
 - name: github.com/iris-contrib/formBinder
   version: ad9fb86c356f971f30319c40ddbdcf72129a2791
 - name: github.com/iris-contrib/go.uuid
   version: 36e9d2ebbde5e3f13ab2e25625fd453271d6522e
 - name: github.com/jinzhu/gorm
   version: 6ed508ec6a4ecb3531899a69cbc746ccf65a4166
+  subpackages:
+  - dialects/mysql
+  - dialects/postgres
+  - dialects/sqlite
+- name: github.com/jinzhu/inflection
+  version: 04140366298a54a039076d798123ffa108fff46c
 - name: github.com/Joker/jade
   version: 4710ad025334997818170b241797d42a707e912b
 - name: github.com/json-iterator/go
@@ -34,6 +42,13 @@ imports:
 - name: github.com/kataras/iris
   version: ba71bda0a36afc574444bdb269a52649d1505953
   subpackages:
+  - cache
+  - cache/cfg
+  - cache/client
+  - cache/client/rule
+  - cache/entry
+  - cache/ruleset
+  - cache/uri
   - context
   - core/errors
   - core/handlerconv
@@ -61,6 +76,13 @@ imports:
   - gzip
 - name: github.com/klauspost/cpuid
   version: e7e905edc00ea8827e58662220139109efea09db
+- name: github.com/lib/pq
+  version: 9eb73efc1fcc404148b56765b0d3f61d9a5ef8ee
+  subpackages:
+  - hstore
+  - oid
+- name: github.com/mattn/go-sqlite3
+  version: c7c4067b79cc51e6dfdcef5c702e74b1e0fa7c75
 - name: github.com/microcosm-cc/bluemonday
   version: 82c7118e8ccf7403d4860175d97bb635e8e28239
 - name: github.com/modern-go/concurrent
@@ -88,6 +110,10 @@ imports:
   version: 66b7b1311ac80bbafcd2daeef9a5e6e2cd1e2399
   subpackages:
   - unix
+- name: google.golang.org/appengine
+  version: 4a4468ece617fc8205e99368fa2200e9d1fad421
+  subpackages:
+  - cloudsql
 - name: gopkg.in/russross/blackfriday.v2
   version: d3b5b032dc8e8927d31a5071b56e14c89f045135
 - name: gopkg.in/yaml.v2

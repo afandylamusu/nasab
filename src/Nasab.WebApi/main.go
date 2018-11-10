@@ -1,11 +1,21 @@
 package main
 
 import (
+	"github.com/afandylamusu/nasab/src/Nasab.WebApi/app/db"
 	"github.com/kataras/iris"
 
 	"github.com/kataras/iris/middleware/logger"
 	"github.com/kataras/iris/middleware/recover"
 )
+
+// NewUser
+func NewUser() {
+	connection := db.Connect()
+
+	// Create
+	connection.Create(&db.People{Name: "aaa"})
+
+}
 
 func main() {
 	app := iris.New()
