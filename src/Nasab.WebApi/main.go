@@ -4,10 +4,11 @@ import (
 	"github.com/afandylamusu/nasab/src/Nasab.WebApi/app/db"
 	"github.com/graphql-go/graphql"
 	"github.com/kataras/iris"
-
 	"github.com/kataras/iris/context"
 	"github.com/kataras/iris/middleware/logger"
 	"github.com/kataras/iris/middleware/recover"
+
+	"github.com/mnmtanish/go-graphiql"
 )
 
 // NewUser will call insert User into table
@@ -87,7 +88,7 @@ func main() {
 	// Method:   GET
 	// Resource: http://localhost:8080
 	app.Handle("GET", "/", func(ctx iris.Context) {
-
+		graphiql.ServeGraphiQL(ctx.ResponseWriter(), ctx.Request())
 	})
 
 	// same as app.Handle("GET", "/ping", [...])
