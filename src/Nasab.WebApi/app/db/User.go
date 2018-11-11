@@ -10,9 +10,9 @@ import (
 type User struct {
 	gorm.Model
 
-	Username string `gorm:"not null"`
+	Username string `gorm:"not null" json:"username"`
 
-	Password string `gorm:"not null"`
+	Password string `gorm:"not null" json:"password"`
 
 	TZ *time.Location
 }

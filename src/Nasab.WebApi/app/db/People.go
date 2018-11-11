@@ -8,5 +8,5 @@ import (
 type People struct {
 	gorm.Model
 
-	Name string
+	Name string `json:"name"`
 }

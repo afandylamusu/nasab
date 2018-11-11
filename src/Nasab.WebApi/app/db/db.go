@@ -4,6 +4,8 @@ import (
 	"log"
 
 	"github.com/jinzhu/gorm"
+
+	// include postgres dialects
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
 
@@ -11,16 +13,16 @@ import (
 func Connect() *gorm.DB {
 	log.Println("Connecting to SQL Db...")
 
-	db, err := gorm.Open("postgres", "host=myhost port=myport user=gorm dbname=gorm password=mypassword")
+	conn, err := gorm.Open("postgres", "host=myhost port=myport user=gorm dbname=gorm password=mypassword")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	defer db.Close()
+	defer conn.Close()
 
-	db.AutoMigrate(&User{})
+	conn.AutoMigrate(&User{})
 
-	db.AutoMigrate(&People{})
+	conn.AutoMigrate(&People{})
 
-	return db
+	return conn
 }
