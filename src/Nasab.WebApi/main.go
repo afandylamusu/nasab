@@ -86,7 +86,9 @@ func main() {
 
 	// Method:   GET
 	// Resource: http://localhost:8080
-	app.Handle("GET", "/", graphiql.ServeGraphiQL)
+	app.Handle("GET", "/", func(ctx iris.Context) {
+
+	})
 
 	// same as app.Handle("GET", "/ping", [...])
 	// Method:   GET
