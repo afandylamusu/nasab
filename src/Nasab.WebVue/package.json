@@ -18,6 +18,8 @@
   "dependencies": {
     "axios": "^0.15.3",
     "core-js": "^2.5.3",
+    "d3": "^5.7.0",
+    "gojs": "^1.8.33",
     "vue": "^2.5.16",
     "vue-router": "^2.8.1",
     "vue-server-renderer": "^2.5.16",
