@@ -11,6 +11,10 @@ fontawesome.library.add(
   require('@fortawesome/fontawesome-free-solid/faHome'),
   require('@fortawesome/fontawesome-free-solid/faList'),
   require('@fortawesome/fontawesome-free-solid/faSpinner'),
+  require('@fortawesome/fontawesome-free-solid/faUsers'),
+  require('@fortawesome/fontawesome-free-solid/faTachometerAlt'),
+  require('@fortawesome/fontawesome-free-solid/faSearch'),
+
   // Brands
   require('@fortawesome/fontawesome-free-brands/faFontAwesome'),
   require('@fortawesome/fontawesome-free-brands/faMicrosoft'),

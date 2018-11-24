@@ -21,7 +21,7 @@ module.exports = () => {
       ]
     },
     entry: {
-      vendor: ['bootstrap', 'bootstrap/dist/css/bootstrap.css', 'event-source-polyfill', 'vue', 'vuex', 'axios', 'vue-router', 'jquery', 'gojs']
+      vendor: ['bootstrap', 'bootstrap/dist/css/bootstrap.css', 'bootstrap-vue', 'bootstrap-vue/dist/bootstrap-vue.css', 'event-source-polyfill', 'vue', 'vuex', 'axios', 'vue-router', 'jquery', 'gojs']
     },
     output: {
       path: path.join(__dirname, 'wwwroot', 'dist'),
